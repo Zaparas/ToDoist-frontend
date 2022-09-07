@@ -1,27 +1,29 @@
 <div class="ToDoCard">
+  <img width="300" alt="Intoteam Hellas MIKE Logo" [src]="task.iconUrl" />
 
-    <div class="TaskName">
-        {{ taskname }}
-    </div>
+  <div class="TaskDescription">
+    <!-- {{ description }} -->
+  </div>
 
-    <img width="300" alt="Intoteam Hellas MIKE Logo"
-        src="https://infoteam.de/typo3conf/ext/triebwerk_sitepackage/Resources/Public/Images/logo-infoteam.svg">
+  <div class="course-name">{{ task.name }}</div>
 
-    <div class="TaskDescription">
-        {{ description }}
-    </div>
+  <div class="description">{{ task.description }}</div>
 
-    <br>
-    <br>
-    
-    <div class="signature">
-        <label for="TaskStatus"> Completed: </label>
-        <input type="checkbox" id="TaskStatus" name="status" value="new">
-    </div>
+  <div class="due-date">{{ task.due_date }}</div>
 
-    <div>
-        <input class="deletebutton" type="button" value="Delete" onclick="location.href='http://google.com';">
-    </div>
+  <div class="priority">{{ task.priority }}</div>
 
+  <div class="signature">
+    <label for="TaskStatus"> Completed: </label>
+    <input type="checkbox" id="TaskStatus" name="status" value="new" />
+  </div>
+
+  <div>
+    <input
+      class="deletebutton"
+      type="button"
+      value="Delete"
+      onclick="location.href='http://google.com';"
+    />
+  </div>
 </div>
-

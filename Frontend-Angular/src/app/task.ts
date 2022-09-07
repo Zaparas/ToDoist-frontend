@@ -1,9 +1,10 @@
-import { Identifier } from "estree";
+// import { Identifier } from "estree";
 
-export class Task {
-
-    taskname:String;
-    taskid:Identifier;
-    taskpriority:String;
-    taskduedate:Date;
+export interface Task {
+  id: String;
+  iconUrl: String;
+  due_date: Date;
+  name: String;
+  description: String;
+  priority: String;
 }
