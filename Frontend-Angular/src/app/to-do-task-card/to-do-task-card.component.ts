@@ -11,20 +11,8 @@ export class ToDoTaskCardComponent implements OnInit {
   @Input()
   task: Task;
 
-  // id: number;
-
-  // @Input()
-  // imgurl:Url;
-
-  // @Input()
-  // description: String;
-
   constructor() {
-    // this.task = TASKS;
-    // this.id = 1;
-    // this.imgurl = 'https://infoteam.de/typo3conf/ext/triebwerk_sitepackage/Resources/Public/Images/logo-infoteam.svg';
-    // this.description =
-    //   "The description of the task to be completed goes here! ^^  This is a wonderful task. ";
+    this.task = TASKS;
   }
 
   ngOnInit(): void {}

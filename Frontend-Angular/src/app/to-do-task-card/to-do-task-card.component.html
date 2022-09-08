@@ -1,9 +1,12 @@
 <div class="ToDoCard">
-  <img width="300" alt="Intoteam Hellas MIKE Logo" [src]="task.iconUrl" />
+  <img
+    class="logo"
+    width="300"
+    alt="Intoteam Hellas MIKE Logo"
+    [src]="task.iconUrl"
+  />
 
-  <div class="TaskDescription">
-    <!-- {{ description }} -->
-  </div>
+  <div class="course-id">{{ task.id }}</div>
 
   <div class="course-name">{{ task.name }}</div>
 

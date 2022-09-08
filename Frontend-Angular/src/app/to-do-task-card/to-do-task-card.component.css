@@ -1,21 +1,21 @@
-.ToDoCard{
-    position: relative;
-    min-width: 300px;
-    max-width: 375px;
-    min-height: 200px;
-    max-height: 400px;
+.ToDoCard {
+  /* position: relative; */
+  min-width: 300px;
+  max-width: 375px;
+  min-height: 200px;
+  max-height: 400px;
 }
 
-    .signature {
-        position: absolute;
-        border: 1px rgb(104, 104, 104);
-        border-style: hidden;
-        right: 5%;
-        bottom: 5%;
-    }
+.signature {
+  /* position: absolute;
+  border: 1px rgb(104, 104, 104);
+  border-style: hidden;
+  right: 5%;
+  bottom: 5%; */
+}
 
-    .deletebutton{
-        position: absolute;
-        left: 5%;
-        bottom: 3%;
-    }
+.deletebutton {
+  /* position: absolute;
+  left: 5%;
+  bottom: 3%; */
+}
