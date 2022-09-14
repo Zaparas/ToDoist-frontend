@@ -9,7 +9,7 @@
       fxFlex.sm="33%"
       *ngFor="let task of tasks"
     >
-      <mat-card>
+      <mat-card [ngStyle]="{ 'background-color': getColor(task.priority) }">
         <mat-card-title>
           {{ task.name }}
         </mat-card-title>
