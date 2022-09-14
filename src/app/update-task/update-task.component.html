@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="card col-md-6 offset-md-3 offset-md-3">
+        <div class="row">
+            <h3 class="text-center"> Update Employee </h3>
+            <hr />
+            <div class="card-body">
+                <form (ngSubmit)="onSubmit()">
+
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" class="form-control" id="name" [(ngModel)]="task.name"
+                            name="name">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Due Date</label>
+                        <input type="text" class="form-control" id="dueDate" [(ngModel)]="task.dueDate"
+                            name="dueDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Priority</label>
+                        <input type="text" class="form-control" id="priority" [(ngModel)]="task.priority"
+                            name="priority">
+                    </div>
+                    <br />
+                    <button class="btn btn-success" type="submit">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

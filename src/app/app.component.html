@@ -1,32 +1,20 @@
-<div class="main-menu">
-  <div class="parent">
-    <img
-      class="child"
-      width="100"
-      alt="infoteam Hellas Mike"
-      src="https://infoteam.de/typo3conf/ext/triebwerk_sitepackage/Resources/Public/Images/logo-infoteam.svg"
-    />
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a routerLink="tasks" routerLinkActive="active" class="nav-link">Task List</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="create-task" routerLinkActive="active" class="nav-link">Add Task</a>
+        </li>
+    </ul>
+</nav>
 
-    <div class="child">
-      <H1>Welcome to ToDoIst!</H1>
-      <p>A most magnificent Task keeper</p>
-    </div>
-  </div>
-
-  <br />
-
-  <div class="taskboard">
-    <app-to-do-task-card
-      class="task"
-      *ngFor="let task of tasks"
-      [task]="task"
-    ></app-to-do-task-card>
-
-    <input
-      type="button"
-      class="createtaskbutton"
-      value="Create Task"
-      onclick="location.href='http://google.com';"
-    />
-  </div>
+<h1 class="text-center"> {{title}} </h1>
+<div class="container">
+    <router-outlet></router-outlet>
 </div>
+<footer class="footer">
+    <div class="container">
+        <span>All Rights Reserved 2022 @Infoteam-Software</span>
+    </div>
+</footer>
