@@ -4,6 +4,7 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { ToDoTaskCardComponent } from "./to-do-task-card/to-do-task-card.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // import {
 //   FontAwesomeModule,
 //   FaIconLibrary,
@@ -11,7 +12,7 @@ import { ToDoTaskCardComponent } from "./to-do-task-card/to-do-task-card.compone
 
 @NgModule({
   declarations: [AppComponent, ToDoTaskCardComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
