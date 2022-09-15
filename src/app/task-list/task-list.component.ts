@@ -43,7 +43,7 @@ export class TaskListComponent implements OnInit {
       case "LOW":
         return "green";
       case "NORMAL":
-        return "yellow";
+        return "blue";
       case "HIGH":
         return "orange";
       case "TOP":

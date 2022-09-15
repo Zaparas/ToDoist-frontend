@@ -11,11 +11,17 @@
     >
       <mat-card>
         <div fxLayoutAlign="end end">
-          <mat-card
+          <!-- <mat-card
             style="text-align: center"
             [ngStyle]="{ 'background-color': getColor(task.priority) }"
           >
             {{ task.priority }}</mat-card
+          > -->
+          <span
+            class="badge rounded-pill"
+            [ngStyle]="{ 'background-color': getColor(task.priority) }"
+          >
+            {{ task.priority }}</span
           >
         </div>
         <mat-card-title>
