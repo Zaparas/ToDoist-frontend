@@ -10,13 +10,14 @@
       *ngFor="let task of tasks"
     >
       <mat-card>
-        <badge
-          fxLayout="column"
-          fxLayoutAlign="end end"
-          [ngStyle]="{ 'background-color': getColor(task.priority) }"
-        >
-          {{ task.priority }}
-        </badge>
+        <div fxLayoutAlign="end end">
+          <mat-card
+            style="text-align: center"
+            [ngStyle]="{ 'background-color': getColor(task.priority) }"
+          >
+            {{ task.priority }}</mat-card
+          >
+        </div>
         <mat-card-title>
           {{ task.name }}
         </mat-card-title>

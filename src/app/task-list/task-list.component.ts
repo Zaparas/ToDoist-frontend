@@ -39,7 +39,6 @@ export class TaskListComponent implements OnInit {
   }
 
   getColor(priority: any) {
-    2;
     switch (priority) {
       case "LOW":
         return "green";
