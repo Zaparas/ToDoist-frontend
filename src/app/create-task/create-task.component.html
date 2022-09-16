@@ -1,34 +1,48 @@
-<div class="row">
-    <div class="card col-md-6 offset-md-3 offset-md-3">
-        <div class="row">
-            <h3 class="text-center"> Create Task </h3>
-            <hr />
-            <div class="card-body">
-                <form (ngSubmit)="onSubmit()">
+<div class="container">
+    <mat-card class="text-center">
+        <mat-card-title>Create Task</mat-card-title>
+        <form [formGroup]="createTaskForm" (submit)="onSubmit()">
+            <mat-form-field class="w-100 p-2" appearance="outline">
+                <mat-label> Name
+                </mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error *ngIf="createTaskForm.get('name')?.touched && createTaskForm.get('name')?.invalid">
+                    <span *ngIf="createTaskForm.controls['name'].errors?.['required']">This field is
+                        mandatory.</span>
+                </mat-error>
+            </mat-form-field>
 
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" class="form-control" id="name" [(ngModel)]="task.name"
-                            name="name">
-                    </div>
+            <mat-form-field class="w-50 p-2" appearance="outline">
+                <mat-label> Due Date</mat-label>
+                <input matInput formControlName="dueDate" [matDatepicker]="picker" (change)="onChange()">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-error
+                    *ngIf="createTaskForm.controls['dueDate'].touched && createTaskForm.controls['dueDate'].invalid">
+                    <span *ngIf="createTaskForm.controls['dueDate'].errors?.['matDatepickerParse']">Enter a correct date
+                        format (DD/MM/YYYY).</span>
+                    <span *ngIf="createTaskForm.controls['dueDate'].errors?.['required']">This field is
+                        mandatory.</span>
+                </mat-error>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-                    <div class="form-group">
-                        <label>Due Date</label>
-                        <input type="date" class="form-control" id="dueDate" [(ngModel)]="task.dueDate"
-                            name="dueDate">
-                    </div>
+            <mat-form-field class="w-50 p-2" appearance="outline">
+                <mat-label> Priority</mat-label>
+                <mat-select matInput formControlName="priority" required>
+                    <mat-option *ngFor="let name of enumKeys | keyvalue" [value]="name.value">
+                        {{name.value}}
+                    </mat-option>
+                </mat-select>
+                <mat-error
+                    *ngIf="createTaskForm.controls['priority'].touched && createTaskForm.controls['priority'].invalid">
+                    <span *ngIf="createTaskForm.controls['priority'].errors?.['required']">This field is
+                        mandatory.</span>
+                </mat-error>
+            </mat-form-field>
 
-                    <div class="form-group">
-                        <label>Priority</label>
-                        <input type="text" class="form-control" id="priority" [(ngModel)]="task.priority"
-                            name="priority">
-                    </div>
-
-                    <br />
-                    <button class="btn btn-success" type="submit">Submit</button>
-
-                </form>
-            </div>
-        </div>
-    </div>
+            <button mat-raised-button class="d-flex m-auto" color="primary" type="submit"
+                [disabled]="!createTaskForm.valid">Submit</button>
+        </form>
+    </mat-card>
 </div>

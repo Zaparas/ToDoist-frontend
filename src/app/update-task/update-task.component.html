@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
     <div class="card col-md-6 offset-md-3 offset-md-3">
         <div class="row">
             <h3 class="text-center"> Update Employee </h3>
@@ -30,4 +30,55 @@
             </div>
         </div>
     </div>
+</div> -->
+
+<div class="container">
+    <mat-card class="text-center">
+        <mat-card-title>Update Task</mat-card-title>
+
+
+        <form [formGroup]="updateTaskForm" (submit)="onSubmit()">
+            <mat-form-field class="w-100 p-2" appearance="outline">
+                <mat-label> Name
+                </mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error *ngIf="updateTaskForm.get('name')?.touched && updateTaskForm.get('name')?.invalid">
+                    <span *ngIf="updateTaskForm.controls['name'].errors?.['required']">This field is
+                        mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field class="w-50 p-2" appearance="outline">
+                <mat-label> Due Date</mat-label>
+                <input matInput formControlName="dueDate" [matDatepicker]="picker">
+                <mat-hint>MM/DD/YYYY</mat-hint>
+                <mat-error
+                    *ngIf="updateTaskForm.controls['dueDate'].touched && updateTaskForm.controls['dueDate'].invalid">
+                    <span *ngIf="updateTaskForm.controls['dueDate'].errors?.['matDatepickerParse']">Enter a correct date
+                        format (DD/MM/YYYY).</span>
+                    <span *ngIf="updateTaskForm.controls['dueDate'].errors?.['required']">This field is
+                        mandatory.</span>
+                </mat-error>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field class="w-50 p-2" appearance="outline">
+                <mat-label> Priority</mat-label>
+                <mat-select matInput formControlName="priority" required>
+                    <mat-option *ngFor="let name of enumKeys | keyvalue" [value]="name.value">
+                        {{name.value}}
+                    </mat-option>
+                </mat-select>
+                <mat-error
+                    *ngIf="updateTaskForm.controls['priority'].touched && updateTaskForm.controls['priority'].invalid">
+                    <span *ngIf="updateTaskForm.controls['priority'].errors?.['required']">This field is
+                        mandatory.</span>
+                </mat-error>
+            </mat-form-field>
+
+            <button mat-raised-button class="d-flex m-auto" color="primary" type="submit"
+                [disabled]="!updateTaskForm.valid">Update</button>
+        </form>
+    </mat-card>
 </div>

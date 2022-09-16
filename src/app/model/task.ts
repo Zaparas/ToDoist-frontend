@@ -1,12 +1,12 @@
 export enum Priority {
-    TOP,
-    HIGH,
-    NORMAL,
-    LOW
+    TOP = "TOP",
+    HIGH = "HIGH",
+    MID = "MID",
+    LOW = "LOW"
 }
 
 export class Task {
-    id?: any;
+    id?: String;
     name?: String;
     dueDate?: Date;
     priority?: Priority;
