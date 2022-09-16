@@ -35,7 +35,7 @@ export class AppService {
     }
 
     createTask(task: Task): Observable<Object> {
-        return this.http.post(`${baseURL}/tasks`, task)
+        return this.http.post(`${baseURL}`, task)
     }
 
     update(id: any, task: Task): Observable<Object> {
