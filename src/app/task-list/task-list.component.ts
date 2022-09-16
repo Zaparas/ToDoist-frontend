@@ -39,7 +39,7 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  getColor(priority: any): object {
+  getColor(priority: Priority | undefined): object {
     switch (priority) {
       case Priority.LOW:
         return { "background-color": "#236523" };
