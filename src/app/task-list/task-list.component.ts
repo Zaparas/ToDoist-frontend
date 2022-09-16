@@ -1,5 +1,5 @@
-import { Component, OnInit } from "@angular/core";
-import { Task } from "../model/task";
+import { Component, Input, OnInit } from "@angular/core";
+import { Priority, Task } from "../model/task";
 import { AppService } from "../app.service";
 import { Router } from "@angular/router";
 
@@ -10,6 +10,7 @@ import { Router } from "@angular/router";
 })
 export class TaskListComponent implements OnInit {
   tasks?: Task[];
+  // priority?: Priority[];
 
   constructor(private service: AppService, private router: Router) {}
 
@@ -38,17 +39,17 @@ export class TaskListComponent implements OnInit {
     });
   }
 
-  getColor(priority: any) {
+  getColor(priority: any): object {
     switch (priority) {
-      case "LOW":
-        return "green";
-      case "NORMAL":
-        return "blue";
-      case "HIGH":
-        return "orange";
-      case "TOP":
-        return "red";
+      case Priority.LOW:
+        return { "background-color": "#236523" };
+      case Priority.MID:
+        return { "background-color": "#1A20C6" };
+      case Priority.HIGH:
+        return { "background-color": "#FF8400", color: "#000" };
+      case Priority.TOP:
+        return { "background-color": "#D10D0D" };
     }
-    return 0;
+    return { "background-color": "white" };
   }
 }
