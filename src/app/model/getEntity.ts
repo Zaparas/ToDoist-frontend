@@ -1,10 +1,12 @@
-import { Task } from "./task";
-
+import { Priority } from "./task";
 export interface IEntity {
-    task: Task,
+    id: String
+    name: String
+    dueDate: Date
+    priority: Priority
     _links: {
-        self: {href: string},
-        tasks: {href: string}
+        self: { href: string },
+        tasks: { href: string }
     };
-    
-  }
+
+}

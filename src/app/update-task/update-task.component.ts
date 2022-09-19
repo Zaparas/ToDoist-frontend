@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 
 import * as moment from "moment";
+import { IEntity } from '../model/getEntity';
 
 @Component({
     selector: 'app-update-task',
@@ -15,6 +16,7 @@ export class UpdateTaskComponent implements OnInit {
 
     updateTaskForm!: FormGroup;
     id: any;
+    entity?: IEntity
     task: Task = new Task();
     prior = Priority;
     enumKeys: string[] = [];
@@ -33,11 +35,11 @@ export class UpdateTaskComponent implements OnInit {
 
         this.service.getTaskById(this.id).subscribe({
             next: (data) => {
-                this.task = data;
+                this.entity = data;
                 this.updateTaskForm = this.formBuilder.group({
-                    name: [this.task.name, Validators.required],
-                    dueDate: [this.task.dueDate, this.dateValidator],
-                    priority: [this.task.priority, Validators.required]
+                    name: [this.entity.name, Validators.required],
+                    dueDate: [this.entity.dueDate, this.dateValidator],
+                    priority: [this.entity.priority, Validators.required]
                 });
             },
             error: (e) => console.log(e)
