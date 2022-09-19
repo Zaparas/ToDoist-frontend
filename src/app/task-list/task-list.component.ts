@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from "@angular/core";
 import { Priority, Task } from "../model/task";
-import { AppService } from "../app.service";
+import { AppService } from "../rest.service";
 import { Router } from "@angular/router";
 
 @Component({
