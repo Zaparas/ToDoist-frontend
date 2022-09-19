@@ -1,23 +1,21 @@
 <div class="row">
     <h2>Tasks List</h2>
 </div>
-<div class="content">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid">
+
+<div class="container">
+    <div fxLayout="row wrap" fxLayoutGap="16px grid" class="d-flex">
         <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let task of tasks">
-            <mat-card>
-                <div fxLayoutAlign="end end">
-                    <!-- <mat-card
-            style="text-align: center"
-            [ngStyle]="{ 'background-color': getColor(task.priority) }"
-          >
-            {{ task.priority }}</mat-card
-          > -->
-                    <span class="badge rounded-pill" [ngStyle]="{ 'background-color': getColor(task.priority) }">
-                        {{ task.priority }}</span>
+            <mat-card [ngStyle]="{ 'min-height': '100%' }">
+                <div fxLayoutAlign="space-between start">
+                    <mat-card-title>
+                        {{ task.name }}
+                    </mat-card-title>
+
+                    <span class="badge rounded-pill" [ngStyle]="getColor(task.priority)">
+                        {{ task.priority }}
+                    </span>
                 </div>
-                <mat-card-title>
-                    {{ task.name }}
-                </mat-card-title>
+
                 <mat-card-subtitle>
                     {{ task.dueDate }}
                 </mat-card-subtitle>
@@ -28,36 +26,11 @@
                     <button mat-mini-fab color="warn" title="Delete Task" (click)="deleteTask(task.id)">
                         <mat-icon>delete</mat-icon>
                     </button>
+                    <button mat-mini-fab color="info" title="Details" (click)="taskDetails(task.id)">
+                        <mat-icon>details</mat-icon>
+                    </button>
                 </mat-card-actions>
             </mat-card>
         </div>
     </div>
 </div>
-<br />
-<table class="table table-striped table-bordered">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Due Date</th>
-            <th>Priority</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let task of tasks">
-            <td>{{ task.name }}</td>
-            <td>{{ task.dueDate }}</td>
-            <td>{{ task.priority }}</td>
-            <td>
-                <button (click)="updateTask(task.id)" class="btn btn-primary">
-                    Update
-                </button>
-                <button (click)="deleteTask(task.id)" class="btn btn-danger" style="margin-left: 10px">
-                    Delete
-                </button>
-                <button (click)="taskDetails(task.id)" class="btn btn-primary" style="margin-left: 10px">
-                    View
-                </button>
-            </td>
-        </tr>
-    </tbody>
-</table>
