@@ -3,34 +3,54 @@
 </div>
 
 <div class="container">
-    <div fxLayout="row wrap" fxLayoutGap="16px grid" class="d-flex">
-        <div fxFlex="25%" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let task of tasks">
-            <mat-card [ngStyle]="{ 'min-height': '100%' }">
-                <div fxLayoutAlign="space-between start">
-                    <mat-card-title>
-                        {{ task.name }}
-                    </mat-card-title>
+  <div fxLayout="row wrap" fxLayoutGap="16px grid" class="d-flex">
+    <div
+      fxFlex="25%"
+      fxFlex.xs="100%"
+      fxFlex.sm="33%"
+      *ngFor="let task of tasks"
+    >
+      <mat-card [ngStyle]="{ 'min-height': '100%' }">
+        <div fxLayoutAlign="space-between start">
+          <mat-card-title>
+            {{ task.name }}
+          </mat-card-title>
 
-                    <span class="badge rounded-pill" [ngStyle]="getColor(task.priority)">
-                        {{ task.priority }}
-                    </span>
-                </div>
-
-                <mat-card-subtitle>
-                    {{ task.dueDate }}
-                </mat-card-subtitle>
-                <mat-card-actions>
-                    <button mat-mini-fab color="primary" title="Update Task" (click)="updateTask(task.id)">
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                    <button mat-mini-fab color="warn" title="Delete Task" (click)="deleteTask(task.id)">
-                        <mat-icon>delete</mat-icon>
-                    </button>
-                    <button mat-mini-fab color="info" title="Details" (click)="taskDetails(task.id)">
-                        <mat-icon>details</mat-icon>
-                    </button>
-                </mat-card-actions>
-            </mat-card>
+          <span class="badge rounded-pill" [ngStyle]="getColor(task.priority)">
+            {{ task.priority }}
+          </span>
         </div>
+
+        <mat-card-subtitle>
+          {{ task.dueDate }}
+        </mat-card-subtitle>
+        <mat-card-actions>
+          <button
+            mat-mini-fab
+            color="primary"
+            title="Update Task"
+            (click)="updateTask(task.id)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-mini-fab
+            color="warn"
+            title="Delete Task"
+            (click)="deleteTask(task.id)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+          <button
+            mat-mini-fab
+            color="info"
+            title="Details"
+            (click)="taskDetails(task.id)"
+          >
+            <mat-icon>details</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
     </div>
+  </div>
 </div>
