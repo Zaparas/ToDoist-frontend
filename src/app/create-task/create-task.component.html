@@ -14,7 +14,7 @@
 
             <mat-form-field class="w-50 p-2" appearance="outline">
                 <mat-label> Due Date</mat-label>
-                <input matInput formControlName="dueDate" [matDatepicker]="picker" (change)="onChange()">
+                <input matInput formControlName="dueDate" [matDatepicker]="picker">
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-error
                     *ngIf="createTaskForm.controls['dueDate'].touched && createTaskForm.controls['dueDate'].invalid">

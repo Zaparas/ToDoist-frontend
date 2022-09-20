@@ -1,6 +1,6 @@
-<div class="row">
-  <h2>Tasks List</h2>
-</div>
+<app-create-task></app-create-task>
+
+<br>
 
 <div class="container">
   <div fxLayout="row wrap" fxLayoutGap="16px grid" class="d-flex">
@@ -16,7 +16,7 @@
             {{ task.name }}
           </mat-card-title>
 
-          <span class="badge rounded-pill" [ngStyle]="getColor(task.priority)">
+          <span class="badge rounded-pill" [ngStyle]="userInterface.getColor(task.priority)">
             {{ task.priority }}
           </span>
         </div>
@@ -37,7 +37,7 @@
             mat-mini-fab
             color="warn"
             title="Delete Task"
-            (click)="deleteTask(task.id)"
+            (click)="taskService.deleteTask(task.id)"
           >
             <mat-icon>delete</mat-icon>
           </button>

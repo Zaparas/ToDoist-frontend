@@ -14,6 +14,7 @@ import { CreateTaskComponent } from "./create-task/create-task.component";
 import { TaskListComponent } from "./task-list/task-list.component";
 import { TaskDetailsComponent } from "./task-details/task-details.component";
 import { UpdateTaskComponent } from "./update-task/update-task.component";
+import { TaskService } from "./task.service";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { UpdateTaskComponent } from "./update-task/update-task.component";
     CreateTaskComponent,
     TaskListComponent,
     TaskDetailsComponent,
-    UpdateTaskComponent,
+    UpdateTaskComponent
   ],
   imports: [
     AngularMaterialModule,
@@ -33,7 +34,7 @@ import { UpdateTaskComponent } from "./update-task/update-task.component";
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [AppService],
+  providers: [AppService, TaskService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
